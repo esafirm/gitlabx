@@ -1,0 +1,13 @@
+## A pipeline for Gitlabx
+
+stages:
+  - build
+
+BuildCommit:
+  stage: build
+  when: manual
+  script:
+    - git --no-pager show HEAD
+    - echo "Run the build"
+  only:
+    - pushes
